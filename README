@@ -1,0 +1,72 @@
+# Speaker Diarization and Transcription Tool
+
+This project provides a Python-based pipeline for converting audio from MP4 files, performing speaker diarization, and transcribing the audio content. The tool integrates with OpenAI Whisper for transcription and PyAnnote for speaker diarization.
+
+## Requirements
+
+Before running the code, ensure that the following Python packages are installed:
+
+```bash
+pip install moviepy pyannote.audio soundfile pandas numpy speechrecognition pydub
+```
+
+## Features
+
+1. **Convert MP4 to WAV**: Extracts audio from an MP4 file and saves it as a WAV file.
+2. **Speaker Diarization**: Identifies and segments the audio based on different speakers using PyAnnote.
+3. **Audio Transcription**: Transcribes the audio into text using OpenAI Whisper.
+4. **Merged Output**: Combines diarization and transcription results into a structured format.
+
+## Usage
+
+### 1. Convert MP4 to WAV
+
+This step extracts the audio from an MP4 video file and saves it as a WAV file.
+
+- `input_file`: Path to the input MP4 file.
+- `output_file`: Path to the output WAV file.
+
+### 2. Perform Speaker Diarization
+
+This step identifies different speakers and their respective audio segments.
+
+- `wav_file`: Path to the WAV file.
+- `hf_token`: Hugging Face authentication token for accessing the diarization model.
+
+Returns a list of speaker segments with start and end times.
+
+### 3. Transcribe Audio using Whisper
+
+This step transcribes the audio content.
+
+- `wav_file`: Path to the WAV file.
+- `language`: Language of the audio (default is Arabic).
+
+Returns a list of transcription segments with timestamps.
+
+### 4. Merge Diarization and Transcription
+
+Combines speaker segments with transcription data for a complete structured output.
+
+- `speaker_segments`: Output from the diarization step.
+- `whisper_segments`: Output from the transcription step.
+
+Returns a list of merged results with speaker IDs, timestamps, and transcriptions.
+
+## Output
+
+The final output is a structured DataFrame containing:
+- `speaker_id`: Identifier for each speaker.
+- `start`: Start time of the segment.
+- `end`: End time of the segment.
+- `text`: Transcribed text for the segment.
+
+## Notes
+
+- Replace `your_huggingface_token` with a valid Hugging Face authentication token.
+- Adjust the Whisper model (`small`, `medium`, `large`) based on your performance requirements.
+
+## License
+
+This project is licensed under the MIT License. Feel free to use and modify the code as needed.
+
