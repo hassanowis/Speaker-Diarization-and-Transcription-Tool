@@ -10,7 +10,7 @@ This README provides a detailed explanation of the script designed to process an
 To run this script, you need the following libraries installed:
 
 ```bash
-pip install moviepy pyannote.audio soundfile pandas numpy speechrecognition pydub
+!pip install moviepy pyannote.audio soundfile pandas numpy speechrecognition pydub
 ```
 
 ### Required Libraries
