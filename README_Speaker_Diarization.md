@@ -1,3 +1,4 @@
+
 # README: Speaker Diarization and Transcription Pipeline
 
 This README provides a detailed explanation of the script designed to process an MP4 file, perform speaker diarization, transcribe audio, and merge the results into a structured format.
@@ -31,21 +32,25 @@ The script processes an MP4 file and produces a structured dataframe containing 
 The function `convert_mp4_to_wav` extracts audio from the input MP4 file and saves it as a WAV file using `moviepy`.
 
 
+---
 
 ### Step 2: Perform Speaker Diarization
 The function `perform_diarization` utilizes the `pyannote.audio` library to identify speaker segments. You need a Hugging Face token to authenticate the diarization model.
 
 
+---
 
 ### Step 3: Transcribe Audio using OpenAI Whisper
 The function `transcribe_audio_with_whisper` uses the OpenAI Whisper model to transcribe the audio. You can specify the language for transcription (e.g., Arabic).
 
 
+---
 
 ### Step 4: Merge Diarization and Transcription
 The function `merge_diarization_and_transcription` aligns the speaker segments with the transcription output. Overlapping text is concatenated for each speaker segment.
 
 
+---
 
 ## Example Usage
 
@@ -55,6 +60,7 @@ The function `merge_diarization_and_transcription` aligns the speaker segments w
 - **Hugging Face Token**: A valid token from Hugging Face.
 
 
+---
 
 ## Output
 The final output is a dataframe with the following columns:
@@ -63,11 +69,11 @@ The final output is a dataframe with the following columns:
 - **end**: End time of the segment (in seconds).
 - **text**: Transcribed text spoken by the speaker.
 
-Example:
-| speaker_id | start  | end    | text                      |
-|------------|--------|--------|---------------------------|
-| Speaker 1  | 0.00   | 5.00   | "السلام عليكم?"     |
-| Speaker 2  | 5.01   | 10.00  | "وعليكم السلام"   |
+### Example:
+| speaker_id | start  | end    | text              |
+|------------|--------|--------|-------------------|
+| Speaker 1  | 0.00   | 5.00   | "السلام عليكم?"   |
+| Speaker 2  | 5.01   | 10.00  | "وعليكم السلام" |
 
 ---
 
@@ -86,4 +92,3 @@ Example:
 
 ## License
 This project is licensed under the MIT License.
-
